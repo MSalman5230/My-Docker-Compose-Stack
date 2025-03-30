@@ -6,5 +6,11 @@ services:
     command: "--path.rootfs=/host"
     pid: host
     restart: unless-stopped
+    networks:
+      - shared_bridge_1
     volumes:
       - /:/host:ro,rslave
+
+networks:
+  shared_bridge_1:
+    external: true
